@@ -808,6 +808,7 @@ void MCP_CAN::mcp2515_start_transmit(const byte mcp_addr)              // start 
 #endif
   MCP2515_SELECT();
   spi_readwrite(txSidhToRTS(mcp_addr));
+  spi_readwrite(MCP_TXB_TXREQ_M);
   MCP2515_UNSELECT();
 #ifdef SPI_HAS_TRANSACTION
     SPI_END();
